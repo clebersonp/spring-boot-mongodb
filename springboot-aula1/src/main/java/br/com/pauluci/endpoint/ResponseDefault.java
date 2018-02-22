@@ -1,4 +1,4 @@
-package br.com.pauluci.controller;
+package br.com.pauluci.endpoint;
 
 import java.io.Serializable;
 import java.util.ArrayList;
