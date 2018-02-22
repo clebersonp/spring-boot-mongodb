@@ -32,7 +32,7 @@ public abstract class BaseResponse implements Serializable {
 		this.protocolo = protocolo;
 	}
 	
-	public void add (Mensagem mensagem) {
+	public void addMsg(Mensagem mensagem) {
 		this.mensagens.add(mensagem);
 	}
 

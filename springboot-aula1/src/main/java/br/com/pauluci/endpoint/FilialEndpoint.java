@@ -14,22 +14,22 @@ import br.com.pauluci.model.FilialPK;
 public class FilialEndpoint {
 
 	@GetMapping("/{empresa}/{codigo}")
-	public ResponseEntity<DtoResponse> recuperar() {
+	public ResponseEntity<DtoResponse<Filial>> recuperar() {
 		
 		Integer i = new Integer(10);
-		DtoResponse response = new DtoResponse();
+		DtoResponse<Filial> response = new DtoResponse<>();
 		response.setProtocolo("API");
 		
-		if (i % 2 == 1) {
+		if (i % 2 == 0) {
 			Mensagem mensagem = new Mensagem();
 			mensagem.setCodigo("0");
 			mensagem.setMensagem("Filial não encontrada.");
-			response.add(mensagem);
-			ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+			response.addMsg(mensagem);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
 		}
 		
 		Filial filial = this.getFilialFake();
-		response.add(filial);
+		response.addDto(filial);
 		response.setValido(Boolean.TRUE);
 		
 		return ResponseEntity.ok().body(response);

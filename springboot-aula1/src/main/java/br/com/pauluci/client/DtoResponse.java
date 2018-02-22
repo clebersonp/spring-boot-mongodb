@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 // referencia: https://github.com/FasterXML/jackson-databind/issues/921
-@JsonPropertyOrder({"valido", "mensagens", "protocolo", "dtos"})
+@JsonPropertyOrder({ "valido", "mensagens", "protocolo", "dtos" })
 public class DtoResponse<T> extends BaseResponse {
 
 	private static final long serialVersionUID = 1L;
@@ -21,6 +21,9 @@ public class DtoResponse<T> extends BaseResponse {
 		this.dtos = dtos;
 	}
 
+	public DtoResponse() {
+	}
+	
 	@JsonCreator
 	public static <T> DtoResponse<T> create(@JsonProperty("dtos") List<T> dtos) {
 		return new DtoResponse.Builder<T>().comDados(dtos).build();
@@ -47,7 +50,7 @@ public class DtoResponse<T> extends BaseResponse {
 		this.dtos = dtos;
 	}
 
-	public void add(T obj) {
+	public void addDto(T obj) {
 		this.dtos.add(obj);
 	}
 
