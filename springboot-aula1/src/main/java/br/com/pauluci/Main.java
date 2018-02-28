@@ -27,11 +27,13 @@ public class Main extends SpringBootServletInitializer implements CommandLineRun
 
 	@Override
 	public void run(String... arg0) throws Exception {
-		while(true) {
+		int i = 0;
+		while(i < 2) {
 			Filial filial = filialClient.recuper(10, 10);
 			System.out.println(filial);
 			
 			Thread.sleep(60_000);
+			i++;
 		}
 	}
 }

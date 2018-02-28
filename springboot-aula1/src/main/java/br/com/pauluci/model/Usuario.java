@@ -18,7 +18,7 @@ public class Usuario implements Serializable {
 	private String id;
 	private String nome;
 	private String sobrenome;
-	
+	private Avatar avatar;
 
 	public String getId() {
 		return id;
@@ -41,6 +41,13 @@ public class Usuario implements Serializable {
 		this.sobrenome = sobrenome;
 	}
 	
+	public Avatar getAvatar() {
+		return avatar;
+	}
+	public void setAvatar(Avatar avatar) {
+		this.avatar = avatar;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
